@@ -1,0 +1,8 @@
+aws cognito-idp sign-up  --region us-east-1 --client-id us-east-1_kXkHRJPR0 --username chris.ranni@gmail.com --password Cr7823469
+
+  aws cognito-idp admin-confirm-sign-up --region us-east-1 --client-id 3i8hi4gf99snn7bn1vftqohmn6 --username admin@example.com
+
+  $ aws cognito-idp admin-confirm-sign-up --region us-east-1 --user-pool-id us-east-1_kXkHRJPR0 --username admin@example.com
+
+  npx aws-api-gateway-cli-test --username='chris.ranni@gmail.com' --password='Voq0l:0n' --user-pool-id=us-east-1_kXkHRJPR0 --app-client-id=q1ibelqovi --cognito-region=us-east-1 --identity-pool-id=us-east-1:1a6868c9-0461-47b2-98c2-2aaac6c185e7 --invoke-url= "https://q1ibelqovi.execute-api.us-east-1.amazonaws.com/dev" --api-gateway-region=us-east-1 --path-template='/notes' 
+--method='POST' --body='{"content":"hello world","attachment":"hello.jpg"}'

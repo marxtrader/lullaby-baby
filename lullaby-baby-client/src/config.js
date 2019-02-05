@@ -3,7 +3,7 @@ export default {
   STRIPE_KEY: "pk_test_3ZzXQnkXHshCiViaxXuhqTr9",
   s3: {
     REGION: "us-east-1",
-    BUCKET: "lullabybaby.chrisranni.com"
+    BUCKET: "https://s3.console.aws.amazon.com/s3/buckets/lullaby-baby-v2-v2-attachmentsbucket-12bdy8yzugyuz/?region=us-east-1&tab=overview"
   },
   apiGateway: {
     REGION: "us-east-1",

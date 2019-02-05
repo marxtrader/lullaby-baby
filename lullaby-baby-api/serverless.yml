@@ -1,4 +1,4 @@
-service: lullaby-baby
+service: lullaby-baby-v2
 
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
@@ -29,7 +29,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: v1
+  stage: v2
   region: us-east-1
 
   # 'iamRoleStatement' defines the permission policy for the Lambda function.
@@ -142,3 +142,14 @@ resources:
   - ${file(resources/cognito-user-pool.yml)}
   # Cognito
   - ${file(resources/cognito-identity-pool.yml)}
+
+Resources:
+  GatewayResponseDefault4XX:
+    Type: 'AWS::ApiGateway::GatewayResponse'
+    Properties:
+      ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+      ResponseType: DEFAULT_4XX
+      RestApiId:
+        Ref: 'ApiGatewayRestApi'

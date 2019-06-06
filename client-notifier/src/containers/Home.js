@@ -53,7 +53,7 @@ export default class Home extends Component {
             >
               <ListGroupItem>
                 <h4>
-                  <b>{"\uFF0B"}</b> Create a note
+                  <b>{"\uFF0B"}</b> Create a Message
                 </h4>
               </ListGroupItem>
             </LinkContainer>
@@ -63,8 +63,8 @@ export default class Home extends Component {
   renderLander() {
     return (
       <div className="lander">
-        <h1>Lullaby Baby</h1>
-        <p>Sing your baby to sleep with Alexa</p>
+        <h1>Notifications made easy</h1>
+        <p>Using voice, text and email to drive customer engagement.</p>
         <div>
           {/* <Link to="/login" className="btn btn-info btn-md">
             Login
@@ -72,7 +72,8 @@ export default class Home extends Component {
           <Link to="/signup" className="btn btn-success btn-md">
             Signup
           </Link> */}
-          <p>grandma's grandpa's moms dad's cousins and siblings. Can join in the fun.</p>
+          <p>Appointment reminders to reduce no shows. Automated process to confirm and cancel appointments. Set your own how, when and what your clients receive. </p>
+          <p>Start your Free Trial today</p>
         </div>
         <Footer />
       </div>
@@ -82,7 +83,7 @@ export default class Home extends Component {
   renderNotes() {
     return (
       <div className="notes">
-        <PageHeader>Lullaby's</PageHeader>
+        <PageHeader>Current Messages</PageHeader>
         <ListGroup>
           {!this.state.isLoading && this.renderNotesList(this.state.notes)}
         </ListGroup>

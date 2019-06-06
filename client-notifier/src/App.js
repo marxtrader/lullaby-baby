@@ -54,7 +54,7 @@ class App extends Component {
       <Navbar fluid collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Lullaby Baby</Link>
+          <Link to="/">Notification Dashboard</Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
@@ -62,6 +62,15 @@ class App extends Component {
         <Nav pullRight>
           {this.state.isAuthenticated
             ? <Fragment>
+                <LinkContainer to="/configure">
+                  <NavItem>Configure</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/metrics">
+                  <NavItem>Metrics</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/billing">
+                  <NavItem>Billing</NavItem>
+                </LinkContainer>
                 <LinkContainer to="/settings">
                   <NavItem>Settings</NavItem>
                 </LinkContainer>

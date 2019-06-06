@@ -1,7 +1,7 @@
 {
-  "name": "lullaby-baby-api",
+  "name": "notifier",
   "version": "1.0.0",
-  "description": "back end support for Alexa Skill",
+  "description": "Voice, Text and Email reminders and notifications.",
   "main": "handler.js",
   "scripts": {
     "test": "jest"

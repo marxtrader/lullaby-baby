@@ -7,11 +7,15 @@ import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 
 const AsyncHome = asyncComponent(() => import("./containers/Home"));
 const AsyncLogin = asyncComponent(() => import("./containers/Login"));
+const AsyncMetrics = asyncComponent(() => import("./containers/Metrics"));
 const AsyncNotes = asyncComponent(() => import("./containers/Notes"));
 const AsyncSignup = asyncComponent(() => import("./containers/Signup"));
 const AsyncNewNote = asyncComponent(() => import("./containers/NewNote"));
 const AsyncNotFound = asyncComponent(() => import("./containers/NotFound"));
 const AsyncSettings = asyncComponent(() => import("./containers/Settings"));
+const AsyncBilling = asyncComponent(() => import("./containers/Billing"));
+const AsyncConfigure = asyncComponent(() => import("./containers/Configure"));
+
 const AsyncResetPassword = asyncComponent(() => import("./containers/ResetPassword"));
 const AsyncChangePassword = asyncComponent(() => import("./containers/ChangePassword"));
 const AsyncChangeEmail = asyncComponent(() => import("./containers/ChangeEmail"));
@@ -70,9 +74,21 @@ export default ({ childProps }) =>
       props={childProps}
     />
     <AuthenticatedRoute
+      path="/billing"
+      exact
+      component={AsyncSettings}
+      props={childProps}
+    />
+    <AuthenticatedRoute
       path="/settings"
       exact
       component={AsyncSettings}
+      props={childProps}
+    />
+    <AuthenticatedRoute
+      path="/Metrics"
+      exact
+      component={AsyncMetrics}
       props={childProps}
     />
     {/* <AuthenticatedRoute
@@ -94,7 +110,19 @@ export default ({ childProps }) =>
       props={childProps}
     /> */}
     <AuthenticatedRoute
+      path="/configure"
+      exact
+      component={AsyncConfigure}
+      props={childProps}
+    />
+    <AuthenticatedRoute
       path="/settings/billing"
+      exact
+      component={AsyncBillingForm}
+      props={childProps}
+    />
+    <AuthenticatedRoute
+      path="/billing/billing"
       exact
       component={AsyncBillingForm}
       props={childProps}

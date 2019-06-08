@@ -1,10 +1,13 @@
 @media all and (min-width: 480px) {
-  .Settings {
+  .Configure {
     padding: 60px 0;
     margin: 0 auto;
     max-width: 320px;
   }
 }
-.Settings .LoaderButton:last-child {
+.Configure .LoaderButton:last-child {
   margin-top: 15px;
+}
+input {
+  width:150px;
 }

@@ -2,33 +2,34 @@ import React, {Component} from "react"
 import TextArea from './TextArea'
 import axios from 'axios'
 import Radio from './Radio'
-import config from '../../config/config'
+import config from '../config'
 let returnMessage = '';
 
 class Configure extends Component {
     constructor() {
         super()
         this.state = {
-            messageName: "", // name of the message
-            voice: true,  // voice?
-            text: true,  // text?
-            email: true,  // email?
+            name: "", // name of the message
+            description:"",
+            type:null,
             message:"" // template string
+            //selectedOption: null,
         }
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleChange(event) {
-      const {name, value, type} = event.target
-      type === "radio" ? this.setState({ [name]: value }) : this.setState({ [name]: value })
+      const {name, value} = event.target
+      this.setState({ [name]: value })
     }
 
     handleClick(event) {
       event.preventDefault();
       let data = {
-        messageName:this.state.messageName,
-        operation:this.state.operation,
+        name:this.state.name,
+        description:this.state.description,
+        type:this.state.type,
         message:this.state.message       
       }
       console.log("Entering handleClick Data Object = ",data)
@@ -36,8 +37,9 @@ class Configure extends Component {
       // put data to db. So it can be access from the alexa app from dynamo db.
       // see function putToDb.js for details
       axios.post(`http://${config.apiServer.host}/`, {
-        messageName: data.messageName,
-        operation : data.operation,
+        name: data.name,
+        description : data.description,
+        type: data.type,
         message : data.message
       })
       .then(function (response) {
@@ -61,42 +63,31 @@ class Configure extends Component {
                   <label>Message Name :</label><br />
                   <input 
                       type="text" 
-                      value={this.state.messageName} 
-                      name="messageName" 
-                      placeholder="First Name" 
+                      value={this.state.name} 
+                      name="name" 
+                      placeholder="A name for your broadcast" 
                       onChange={this.handleChange} 
                   />
-
                   <br /><br />
+                  <label>Add a Description :</label><br />
                   <input 
-                      type="checkbox" 
-                      value={this.state.voice} 
-                      name="voice" 
-                      placeholder="Voice" 
+                      type="text" 
+                      value={this.state.description} 
+                      name="description" 
+                      placeholder="description" 
                       onChange={this.handleChange} 
                   />
-                  <label>Voice : </label>
-
-                  <input 
-                      type="checkbox" 
-                      value={this.state.text} 
-                      name="text" 
-                      placeholder="Text" 
-                      onChange={this.handleChange} 
-                  />
-                  <label>Text : </label>
-                  
-                  <input 
-                      type="checkbox" 
-                      value={this.state.email} 
-                      name="email" 
-                      placeholder="Email" 
-                      onChange={this.handleChange} 
-                  /> 
-                  <label>Email : </label>
-                  <br /><br />                  
-
-                  <label><h3>Create the message text</h3></label>                  
+                  <br /><br />
+                  <label>Choose message type: </label>  <br />
+                  <select value={this.state.value} onChange={this.handleChange}>
+                    <option value="voice">Voice</option>
+                    <option value="text">Text</option>
+                    <option value="email">Email</option>
+                  </select>
+                
+                  <br /><br />
+                  <label><h3>Create the message text</h3></label>   
+                  <br /><br />               
                   <textarea
                     name='message'
                     rows={5}

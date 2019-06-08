@@ -4,7 +4,7 @@ import LoaderButton from "../components/LoaderButton";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import BillingForm from "../components/BillingForm";
 import config from "../config";
-import "./Billing.css";
+import "./Settings.css";
 
 export default class Settings extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ export default class Settings extends Component {
   
   render() {
     return (
-      <div className="Billing">
+      <div className="Settings">
         <StripeProvider apiKey={config.STRIPE_KEY}>
           <Elements>
             <BillingForm

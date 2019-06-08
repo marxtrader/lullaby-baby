@@ -38,15 +38,17 @@ export default class Settings extends Component {
   
   render() {
     return (
-      <div className="Settings">
-        <StripeProvider apiKey={config.STRIPE_KEY}>
-          <Elements>
-            <BillingForm
-              loading={this.state.isLoading}
-              onSubmit={this.handleFormSubmit}
-            />
-          </Elements>
-        </StripeProvider>
+      <div className="Metrics">
+        <h2>This is where we will put the statistics of the calls texts and emails.</h2><br />
+        <h3>Number of communications and their results</h3>
+        <ul>
+          <li>Total Calls, Texts and Emails</li>
+          <li>Answered and confirmed</li>
+          <li>Answered and canceled</li>
+          <li>left Message</li>
+          <li>no answer</li>
+          <li>other</li>
+        </ul>
       </div>
     );
   }

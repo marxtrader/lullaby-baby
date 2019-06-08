@@ -15,7 +15,6 @@ const AsyncNotFound = asyncComponent(() => import("./containers/NotFound"));
 const AsyncSettings = asyncComponent(() => import("./containers/Settings"));
 const AsyncBilling = asyncComponent(() => import("./containers/Billing"));
 const AsyncConfigure = asyncComponent(() => import("./containers/Configure"));
-
 const AsyncResetPassword = asyncComponent(() => import("./containers/ResetPassword"));
 const AsyncChangePassword = asyncComponent(() => import("./containers/ChangePassword"));
 const AsyncChangeEmail = asyncComponent(() => import("./containers/ChangeEmail"));
@@ -43,6 +42,13 @@ export default ({ childProps }) =>
       component={AsyncSignup}
       props={childProps}
     />
+    
+    <AuthenticatedRoute
+      path="/configure"
+      exact
+      component={AsyncConfigure}
+      props={childProps}
+    />
     <AuthenticatedRoute
       path="/notes/new"
       exact
@@ -56,27 +62,15 @@ export default ({ childProps }) =>
       props={childProps}
     />
     <AuthenticatedRoute
-      path="/notes/:id"
-      exact
-      component={AsyncNotes}
-      props={childProps}
-    />
-    <AuthenticatedRoute
-      path="/notes/:id"
-      exact
-      component={AsyncNotes}
-      props={childProps}
-    />
-    <AuthenticatedRoute
-      path="/notes/:id"
-      exact
-      component={AsyncNotes}
-      props={childProps}
-    />
-    <AuthenticatedRoute
       path="/billing"
       exact
-      component={AsyncSettings}
+      component={AsyncMetrics}
+      props={childProps}
+    />
+    <AuthenticatedRoute
+      path="/metrics"
+      exact
+      component={AsyncMetrics}
       props={childProps}
     />
     <AuthenticatedRoute
@@ -86,12 +80,6 @@ export default ({ childProps }) =>
       props={childProps}
     />
     <AuthenticatedRoute
-      path="/Metrics"
-      exact
-      component={AsyncMetrics}
-      props={childProps}
-    />
-    {/* <AuthenticatedRoute
       path="/settings/email"
       exact
       component={AsyncChangeEmail}
@@ -107,24 +95,6 @@ export default ({ childProps }) =>
       path="/settings/reset"
       exact
       component={AsyncResetPassword}
-      props={childProps}
-    /> */}
-    <AuthenticatedRoute
-      path="/configure"
-      exact
-      component={AsyncConfigure}
-      props={childProps}
-    />
-    <AuthenticatedRoute
-      path="/settings/billing"
-      exact
-      component={AsyncBillingForm}
-      props={childProps}
-    />
-    <AuthenticatedRoute
-      path="/billing/billing"
-      exact
-      component={AsyncBillingForm}
       props={childProps}
     />
     {/* Finally, catch all unmatched routes */}

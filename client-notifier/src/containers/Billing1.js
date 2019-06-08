@@ -6,7 +6,7 @@ import BillingForm from "../components/BillingForm";
 import config from "../config";
 import "./Billing.css";
 
-export default class Settings extends Component {
+export default class Billing extends Component {
   constructor(props) {
     super(props);
 
@@ -38,7 +38,7 @@ export default class Settings extends Component {
   
   render() {
     return (
-      <div className="Billing">
+      <div className="Settings">
         <StripeProvider apiKey={config.STRIPE_KEY}>
           <Elements>
             <BillingForm

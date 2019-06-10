@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import LoaderButton from "../components/LoaderButton";
+//import { LinkContainer } from "react-router-bootstrap";
+//import LoaderButton from "../components/LoaderButton";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import BillingForm from "../components/BillingForm";
 import config from "../config";
 import "./Billing.css";
 
-export default class Settings extends Component {
+export default class Billing extends Component {
   constructor(props) {
     super(props);
 

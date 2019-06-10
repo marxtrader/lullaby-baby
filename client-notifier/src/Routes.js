@@ -18,7 +18,9 @@ const AsyncConfigure = asyncComponent(() => import("./containers/Configure"));
 const AsyncResetPassword = asyncComponent(() => import("./containers/ResetPassword"));
 const AsyncChangePassword = asyncComponent(() => import("./containers/ChangePassword"));
 const AsyncChangeEmail = asyncComponent(() => import("./containers/ChangeEmail"));
-const AsyncBillingForm = asyncComponent(() => import("./components/BillingForm"))
+const AsyncVoiceConfig = asyncComponent(() => import("./containers/VoiceConfig"));
+const AsyncTextConfig = asyncComponent(() => import("./containers/TextConfig"));
+//const AsyncBillingForm = asyncComponent(() => import("./components/BillingForm"))
 
 
 
@@ -50,6 +52,18 @@ export default ({ childProps }) =>
       props={childProps}
     />
     <AuthenticatedRoute
+      path="/configure/voice"
+      exact
+      component={AsyncVoiceConfig}
+      props={childProps}
+    />
+    <AuthenticatedRoute
+      path="/configure/text"
+      exact
+      component={AsyncTextConfig}
+      props={childProps}
+    />
+    <AuthenticatedRoute
       path="/notes/new"
       exact
       component={AsyncNewNote}
@@ -64,7 +78,7 @@ export default ({ childProps }) =>
     <AuthenticatedRoute
       path="/billing"
       exact
-      component={AsyncMetrics}
+      component={AsyncBilling}
       props={childProps}
     />
     <AuthenticatedRoute

@@ -22,8 +22,8 @@ export default class ChangeEmail extends Component {
     };
   }
 
-  validatEmailForm() {
-    return this.state.email.length > 0;
+  validateEmailForm() {
+    return this.state.email.length > 0  && this.state.email.includes('@');
   }
 
   validateConfirmForm() {
@@ -85,7 +85,7 @@ export default class ChangeEmail extends Component {
           bsSize="large"
           text="Update Email"
           loadingText="Updating…"
-          disabled={!this.validatEmailForm()}
+          disabled={!this.validateEmailForm()}
           isLoading={this.state.isSendingCode}
         />
       </form>

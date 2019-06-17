@@ -1,0 +1,31 @@
+let caregivers = [
+  {
+    firstName:"Sam",
+    lastName:"Snead",
+    prefix:"Dr."
+    description:"Ears",
+    enabled:true
+  },
+  {
+    firstName:"Joyce",
+    lastName:"Vance",
+    prefix:"Dr."
+    description:"Eyes",
+    enabled:true
+  },
+  {
+    firstName:"Richard",
+    lastName:"Painter",
+    prefix:"Dr."
+    description:"Throat",
+    enabled:true
+  },
+  {
+    firstName:"Dotty",
+    lastName:"Dash",
+    prefix:"Dr."
+    description:"CBD's",
+    enabled:true
+  }
+]
+module.exports = doctors;

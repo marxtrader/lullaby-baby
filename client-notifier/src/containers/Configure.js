@@ -28,7 +28,7 @@ export default class Configure extends Component {
             text="Message Templates"
           />
         </LinkContainer>
-        <LinkContainer to="/configure/locations">
+        <LinkContainer to="./configure/locations">
           <LoaderButton
             block
             bsSize="large"

@@ -1,7 +1,6 @@
 import React, {Component} from "react"
-//import TextArea from './TextArea'
+import LoaderButton from "../components/LoaderButton";
 import axios from 'axios'
-//import Radio from './Radio'
 import config from '../config'
 import "./VoiceConfig.css";
 
@@ -63,15 +62,14 @@ class VoiceConfig extends Component {
     render() {
         return (
           <div>
-            <form className='VoiceConfig'>
+            <form className='VoiceConfig' onSubmit={this.handleClick}>
               <fieldset>
-                <legend> Create Message</legend><br />
                   <label>Message Name :</label><br />
                   <input 
                       type="text" 
                       value={this.state.name} 
                       name="name" 
-                      placeholder="A name for your broadcast" 
+                      placeholder="Name your broadcast" 
                       onChange={this.handleChange} 
                   />
                   <br /><br />
@@ -82,33 +80,31 @@ class VoiceConfig extends Component {
                       name="description" 
                       placeholder="description" 
                       onChange={this.handleChange} 
-                  />
-                  {/* <br /><br />
-                  <label>Choose message type: </label>  <br />
-                  <select value={this.state.value} onChange={this.handleChange}>
-                    <option value="voice">Voice</option>
-                    <option value="text">Text</option>
-                    <option value="email">Email</option>
-                  </select> */}
-                
+                  />               
                   <br /><br />
-                  <label><h3>Create the voice message</h3></label>   
-               
-                  <p>Punctuation is used to create a pause. A comma pauses x while a period will pause longer. It is also best to enter in all lower case.</p><br />
+                  <label><h4>Create the voice message</h4></label><br />   
                   <textarea
                     name='message'
                     rows={5}
                     cols = {50}
                     value={this.state.message}
                     onChange={this.handleChange}
-                    placeholder="ex. {care giver} wants to remind you of your appointment on {day} at {time} at our {location} location."
+                    placeholder="ex. {care giver}, wants to remind you of your appointment on {day}, at {time}, at our {location} location."
                     required="required"
                   /><br /><br />
-                  
-                  <button 
+                  <LoaderButton
+                    block
+                    bsSize="large"
+                    disabled={!this.validateForm()}
+                    type="submit"
+                    isLoading={this.state.isLoading}
+                    text="Submit"
+                    loadingText="Saving…"
+                  />
+                  {/* <button 
                     onClick={this.handleClick} 
                     className='submit'>Submit
-                  </button>
+                  </button> */}
                 </fieldset>
               </form>
           </div>

@@ -66,7 +66,6 @@ class TextConfig extends Component {
           <div>
             <form className='TextConfig' onSubmit={this.handleClick}>
               <fieldset>
-                <legend> Create Message</legend><br />
                   <label>Message Name :</label><br />
                   <input 
                       type="text" 
@@ -86,7 +85,7 @@ class TextConfig extends Component {
                   />
                 
                   <br /><br />
-                  <label><h3>Create the message text</h3></label>   
+                  <label><h4>Create the text message</h4></label>   
                   <br /><br />                                 
                   <textarea
                     name='message'
@@ -96,7 +95,7 @@ class TextConfig extends Component {
                     onChange={this.handleChange}
                     placeholder="ex. {caregiver} wants to remind you of your appointment on {date} at {time} at {location}. Please text back yes to confirm and no to cancel"
                     required="required"
-                  /><p>Characters Remaining:{max_length-this.state.message.length}</p><br /><br />
+                  /><p>Characters Remaining:{max_length-this.state.message.length}</p><br />
                   
                   {/* <button onClick={this.handleClick} className='submit'>Submit</button> */}
                   <LoaderButton

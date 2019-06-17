@@ -20,9 +20,9 @@ const AsyncChangePassword = asyncComponent(() => import("./containers/ChangePass
 const AsyncChangeEmail = asyncComponent(() => import("./containers/ChangeEmail"));
 const AsyncVoiceConfig = asyncComponent(() => import("./containers/VoiceConfig"));
 const AsyncTextConfig = asyncComponent(() => import("./containers/TextConfig"));
+const AsyncEditLocations = asyncComponent(() => import("./containers/locations/EditLocations"));
+const AsyncEditCaregivers = asyncComponent(() => import("./containers/caregivers/EditCaregivers"));
 //const AsyncBillingForm = asyncComponent(() => import("./components/BillingForm"))
-
-
 
 export default ({ childProps }) =>
   <Switch>
@@ -61,6 +61,18 @@ export default ({ childProps }) =>
       path="/configure/text"
       exact
       component={AsyncTextConfig}
+      props={childProps}
+    />
+    <AuthenticatedRoute
+      path="/configure/caregivers"
+      exact
+      component={AsyncEditCaregivers}
+      props={childProps}
+    />
+    <AuthenticatedRoute
+      path="/configure/locations"
+      exact
+      component={AsyncEditLocations}
       props={childProps}
     />
     <AuthenticatedRoute
